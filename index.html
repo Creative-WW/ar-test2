@@ -11,25 +11,49 @@
       text-align: center;
       background: #f9f9f9;
     }
+
     h1 {
       background: #E10600;
       color: white;
       margin: 0;
-      padding: 12px;      /* slightly less padding */
-      font-size: 1.8rem;  /* smaller font size */
+      padding: 12px;
+      font-size: 1.8rem;
     }
+
+    .image-container {
+      position: relative;
+      display: inline-block;
+      margin: 40px auto 20px;
+    }
+
     .center-image {
       max-width: 90%;
-      margin: 40px auto 20px; /* auto for left and right to center */
-      display: block;          /* ensure image is block-level for margin auto to work */
+      display: block;
     }
-    .ar-img-button {
-      width: 150px;
+
+    .ar-overlay {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 48px;
+      height: 48px;
       cursor: pointer;
       transition: transform 0.2s;
     }
-    .ar-img-button:hover {
-      transform: scale(1.05);
+
+    .ar-overlay:hover {
+      transform: scale(1.1);
+    }
+
+    .ar-img-button {
+      width: 100%;
+      height: 100%;
+    }
+
+    .unsupported-message {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
@@ -37,15 +61,19 @@
 
   <h1>Cooler Topper</h1>
 
-  <img src="CoolerTopper.png" alt="Cooler Topper" class="center-image" />
+  <div class="image-container">
+    <img src="CoolerTopper.png" alt="Cooler Topper" class="center-image" />
+    <div id="ar-button" class="ar-overlay"></div>
+  </div>
 
-  <div id="ar-button"></div>
+  <div id="fallback-message" class="unsupported-message"></div>
 
   <script>
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
     const isAndroid = /Android/i.test(navigator.userAgent);
 
     const arButton = document.getElementById("ar-button");
+    const fallback = document.getElementById("fallback-message");
 
     if (isIOS) {
       arButton.innerHTML = `
@@ -58,7 +86,7 @@
           <img src="ar-button.png" alt="View in AR" class="ar-img-button" />
         </a>`;
     } else {
-      arButton.textContent = "AR is only supported on iOS and Android devices.";
+      fallback.textContent = "AR is only supported on iOS and Android devices.";
     }
   </script>
 
