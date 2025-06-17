@@ -8,83 +8,63 @@
     body {
       margin: 0;
       font-family: sans-serif;
-      text-align: center;
       background: #f9f9f9;
+      text-align: center;
     }
 
     h1 {
       background: #E10600;
-      color: white;
+      color: #fff;
       margin: 0;
       padding: 12px;
       font-size: 1.8rem;
     }
 
-    .image-container {
-      position: relative;
-      display: inline-block;
-      margin: 40px auto 20px;
-    }
-
-    .center-image {
+    img.center-image {
       max-width: 90%;
+      margin: 40px auto 20px;
       display: block;
     }
 
-    .ar-overlay {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 48px;
-      height: 48px;
+    .ar-button img {
+      width: 150px;
       cursor: pointer;
       transition: transform 0.2s;
     }
 
-    .ar-overlay:hover {
-      transform: scale(1.1);
+    .ar-button img:hover {
+      transform: scale(1.05);
     }
 
-    .ar-img-button {
-      width: 100%;
-      height: 100%;
-    }
-
-    .unsupported-message {
-      margin-top: 10px;
-      font-size: 0.9rem;
+    .fallback {
       color: #666;
+      font-size: 0.9rem;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
   <h1>Cooler Topper</h1>
+  <img src="CoolerTopper.png" alt="Cooler Topper" class="center-image" />
 
-  <div class="image-container">
-    <img src="CoolerTopper.png" alt="Cooler Topper" class="center-image" />
-    <div id="ar-button" class="ar-overlay"></div>
-  </div>
-
-  <div id="fallback-message" class="unsupported-message"></div>
+  <div id="ar-button" class="ar-button"></div>
+  <div id="fallback" class="fallback"></div>
 
   <script>
-    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const isAndroid = /Android/i.test(navigator.userAgent);
+    const ios = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const android = /Android/i.test(navigator.userAgent);
+    const button = document.getElementById("ar-button");
+    const fallback = document.getElementById("fallback");
 
-    const arButton = document.getElementById("ar-button");
-    const fallback = document.getElementById("fallback-message");
-
-    if (isIOS) {
-      arButton.innerHTML = `
-        <a rel="ar" href="AR_DQ2049.usdz">
-          <img src="ar-button.png" alt="View in AR" class="ar-img-button" />
-        </a>`;
-    } else if (isAndroid) {
-      arButton.innerHTML = `
-        <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;">
-          <img src="ar-button.png" alt="View in AR" class="ar-img-button" />
-        </a>`;
+    if (ios) {
+      button.innerHTML = `<a rel="ar" href="AR_DQ2049.usdz">
+        <img src="ar-button.png" alt="View in AR" />
+      </a>`;
+    } else if (android) {
+      button.innerHTML = `<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;">
+        <img src="ar-button.png" alt="View in AR" />
+      </a>`;
     } else {
       fallback.textContent = "AR is only supported on iOS and Android devices.";
     }
