@@ -9,31 +9,25 @@
       margin: 0;
       font-family: sans-serif;
       text-align: center;
-      background: #fff;
+      background: #f9f9f9;
     }
     h1 {
-      background: red;
-      color: #E10600;
+      background: #E10600;
+      color: white;
       margin: 0;
       padding: 15px;
     }
-    img.center {
+    .center-image {
       max-width: 90%;
-      height: auto;
       margin: 40px 0 20px;
     }
-    a.ar-btn {
-      display: inline-block;
-      background: #007bff;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
+    .ar-img-button {
+      width: 150px;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
-    a.ar-btn:hover {
-      background: #0056b3;
+    .ar-img-button:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -41,7 +35,7 @@
 
   <h1>Cooler Topper</h1>
 
-  <img src="CoolerTopper.png" alt="Cooler Topper" class="center" />
+  <img src="CoolerTopper.png" alt="Cooler Topper" class="center-image" />
 
   <div id="ar-button"></div>
 
@@ -49,14 +43,20 @@
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
     const isAndroid = /Android/i.test(navigator.userAgent);
 
-    const arBtn = document.getElementById("ar-button");
+    const arButton = document.getElementById("ar-button");
 
     if (isIOS) {
-      arBtn.innerHTML = `<a href="AR_DQ2049.usdz" rel="ar" class="ar-btn">View in AR (iOS)</a>`;
+      arButton.innerHTML = `
+        <a rel="ar" href="AR_DQ2049.usdz">
+          <img src="ar-button.png" alt="View in AR" class="ar-img-button" />
+        </a>`;
     } else if (isAndroid) {
-      arBtn.innerHTML = `<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;" class="ar-btn">View in AR (Android)</a>`;
+      arButton.innerHTML = `
+        <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;">
+          <img src="ar-button.png" alt="View in AR" class="ar-img-button" />
+        </a>`;
     } else {
-      arBtn.textContent = "AR is only supported on iOS and Android devices.";
+      arButton.textContent = "AR is only supported on iOS and Android devices.";
     }
   </script>
 
