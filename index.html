@@ -4,9 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AR Model Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 20px 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    #ar-button {
+      margin-top: 50px;
+    }
+
+    #ar-button img {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #ar-button img:hover {
+      transform: scale(1.05);
+    }
+
+    p {
+      font-size: 1em;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.4em;
+      }
+
+      #ar-button img {
+        width: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>View 3D Model in AR</h1>
+
+  <header>
+    <h1>View 3D Model in AR</h1>
+  </header>
 
   <div id="ar-button">
     <!-- AR button will appear here -->
@@ -17,7 +69,6 @@
     const isAndroid = /Android/i.test(navigator.userAgent);
 
     if (isiOS) {
-      // iOS AR Quick Look
       document.getElementById("ar-button").innerHTML = `
         <a rel="ar" href="AR_DQ2049.usdz">
           <img src="ar-button.png" alt="View in AR" width="150" />
@@ -25,7 +76,6 @@
         <p>Tap to view in AR (iOS only)</p>
       `;
     } else if (isAndroid) {
-      // Android Scene Viewer
       document.getElementById("ar-button").innerHTML = `
         <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://creative-ww.github.io/artest/;end;">
           <img src="ar-button.png" alt="View in AR" width="150" />
@@ -33,11 +83,11 @@
         <p>Tap to view in AR (Android only)</p>
       `;
     } else {
-      // Not supported (e.g., desktop)
       document.getElementById("ar-button").innerHTML = `
         <p>This AR experience is only available on iOS and Android mobile devices.</p>
       `;
     }
   </script>
+
 </body>
 </html>
