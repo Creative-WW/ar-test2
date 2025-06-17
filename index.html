@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cooler Topper AR</title>
   <style>
     body {
@@ -15,8 +15,8 @@
       background: #E10600;
       color: white;
       margin: 0;
-      padding: 12px 15px; /* slightly smaller padding */
-      font-size: 1.5rem; /* smaller font */
+      padding: 12px 15px;
+      font-size: 1.5rem;
     }
     .center-image {
       display: block;
@@ -27,7 +27,7 @@
       width: 150px;
       cursor: pointer;
       transition: transform 0.2s;
-      margin-top: -10px; /* moved upward */
+      margin-top: -10px;
     }
     .ar-img-button:hover {
       transform: scale(1.05);
@@ -50,7 +50,7 @@
 
     if (isIOS) {
       arButton.innerHTML = `
-        <a rel="ar" href="AR_DQ2049.usdz">
+        <a href="AR_DQ2049.usdz">
           <img src="ar-button.png" alt="View in AR" class="ar-img-button" />
         </a>`;
     } else if (isAndroid) {
