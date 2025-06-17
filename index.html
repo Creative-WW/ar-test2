@@ -15,11 +15,13 @@
       background: #E10600;
       color: white;
       margin: 0;
-      padding: 15px;
+      padding: 12px;      /* slightly less padding */
+      font-size: 1.8rem;  /* smaller font size */
     }
     .center-image {
       max-width: 90%;
-      margin: 40px 0 20px;
+      margin: 40px auto 20px; /* auto for left and right to center */
+      display: block;          /* ensure image is block-level for margin auto to work */
     }
     .ar-img-button {
       width: 150px;
