@@ -9,9 +9,20 @@
       font-family: Arial, sans-serif;
       text-align: center;
       margin: 0;
-      padding: 40px 10px;
+      padding: 0;
       background-color: #f9f9f9;
       color: #333;
+    }
+
+    header {
+      background-color: #c40000;
+      color: white;
+      padding: 20px 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
     }
 
     #ar-button {
@@ -33,42 +44,5 @@
     }
 
     @media (max-width: 600px) {
-      #ar-button img {
-        width: 120px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div id="ar-button">
-    <!-- AR button will appear here -->
-  </div>
-
-  <script>
-    const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const isAndroid = /Android/i.test(navigator.userAgent);
-
-    if (isiOS) {
-      document.getElementById("ar-button").innerHTML = `
-        <a rel="ar" href="AR_DQ2049.usdz">
-          <img src="ar-button.png" alt="View in AR" width="150" />
-        </a>
-        <p>Tap to view in AR (iOS only)</p>
-      `;
-    } else if (isAndroid) {
-      document.getElementById("ar-button").innerHTML = `
-        <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://creative-ww.github.io/artest/;end;">
-          <img src="ar-button.png" alt="View in AR" width="150" />
-        </a>
-        <p>Tap to view in AR (Android only)</p>
-      `;
-    } else {
-      document.getElementById("ar-button").innerHTML = `
-        <p>This AR experience is only available on iOS and Android mobile devices.</p>
-      `;
-    }
-  </script>
-
-</body>
-</html>
+      header h1 {
+        font-s
