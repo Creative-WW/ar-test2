@@ -12,19 +12,18 @@
     background: #E10600; color: #fff; margin: 0; padding: 10px; font-size: 1.5rem;
   }
   #ar-button a img {
-    max-width: 600px; /* increased size */
-    width: 100vw;
-    height: auto;
-    margin: 40px auto 20px;
-    cursor: pointer;
-    display: block;
-    transition: transform 0.2s;
+    max-width: 600px; width: 100vw; height: auto; margin: 40px auto 20px;
+    cursor: pointer; display: block; transition: transform 0.2s;
   }
   #ar-button a img:hover {
     transform: scale(1.05);
   }
   .fallback {
     color: #666; font-size: 0.9rem; margin-top: 10px;
+  }
+  .tap-to-ar {
+    background: #E10600; color: #fff; font-size: 0.85rem;
+    padding: 8px 0; position: fixed; bottom: 0; width: 100%; user-select: none;
   }
 </style>
 </head>
@@ -33,23 +32,16 @@
 <h1>Cooler Topper</h1>
 <div id="ar-button"></div>
 <div class="fallback" id="fallback"></div>
+<div class="tap-to-ar">Tap to View AR</div>
 
 <script>
   const ua = navigator.userAgent;
-  const button = document.getElementById("ar-button");
-  const fallback = document.getElementById("fallback");
+  const btn = document.getElementById("ar-button");
+  const fb = document.getElementById("fallback");
 
-  if (/iPhone|iPad|iPod/i.test(ua)) {
-    button.innerHTML = `<a rel="ar" href="AR_DQ2049.usdz">
-      <img src="CoolerTopper.png" alt="View in AR" />
-    </a>`;
-  } else if (/Android/i.test(ua)) {
-    button.innerHTML = `<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;">
-      <img src="CoolerTopper.png" alt="View in AR" />
-    </a>`;
-  } else {
-    fallback.textContent = "AR is only supported on iOS and Android devices.";
-  }
+  if (/iPhone|iPad|iPod/i.test(ua)) btn.innerHTML = `<a rel="ar" href="AR_DQ2049.usdz"><img src="CoolerTopper.png" alt="View in AR" /></a>`;
+  else if (/Android/i.test(ua)) btn.innerHTML = `<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;"><img src="CoolerTopper.png" alt="View in AR" /></a>`;
+  else fb.textContent = "AR is only supported on iOS and Android devices.";
 </script>
 
 </body>
