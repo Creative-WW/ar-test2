@@ -10,9 +10,7 @@
     font-family: sans-serif; 
     background: #f9f9f9; 
     text-align: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    /* remove flex so footer is not pushed to bottom */
   }
   h1 {
     background: #E10600; 
@@ -44,13 +42,15 @@
   }
   /* Footer styles */
   footer {
-    margin-top: auto; /* push footer to bottom */
     background: #eee;
     padding: 10px 20px;
+    margin: 20px auto 0; /* some spacing above footer */
+    max-width: 600px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.9rem;
+    box-sizing: border-box;
   }
   footer img {
     height: 40px; /* adjust logo size */
