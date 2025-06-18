@@ -10,9 +10,9 @@
     font-family: sans-serif; 
     background: #f9f9f9; 
     text-align: center;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
   }
   h1 {
     background: #E10600; 
@@ -20,9 +20,6 @@
     margin: 0; 
     padding: 10px; 
     font-size: 1.4rem;
-  }
-  #ar-button {
-    min-height: 220px; /* ensures enough space before JS runs */
   }
   #ar-button a {
     display: inline-block;
@@ -45,18 +42,18 @@
     font-size: 0.9rem; 
     margin-top: 10px;
   }
+  /* Footer styles */
   footer {
-    background: #222;
-    color: #ccc;
-    font-size: 0.8rem;
+    margin-top: auto; /* push footer to bottom */
+    background: #eee;
     padding: 10px 20px;
-    margin-top: auto; /* push footer down */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0.9rem;
   }
   footer img {
-    height: 24px;
+    height: 40px; /* adjust logo size */
   }
 </style>
 </head>
@@ -67,8 +64,8 @@
 <div class="fallback" id="fallback"></div>
 
 <footer>
-  <img src="https://via.placeholder.com/100x24?text=Logo" alt="Company Logo" />
-  <span>© Copyright belongs to me</span>
+  <img src="logo.png" alt="Company Logo" />
+  <div>© 2025 Your Company Name. All rights reserved.</div>
 </footer>
 
 <script>
