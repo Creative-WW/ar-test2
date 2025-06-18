@@ -6,29 +6,36 @@
 <title>Cooler Topper AR</title>
 <style>
   body {
-    margin: 0; 
-    font-family: sans-serif; 
-    background: #f9f9f9; 
+    margin: 0;
+    font-family: sans-serif;
+    background: #f9f9f9;
     text-align: center;
-    padding-bottom: 60px; /* prevent content being hidden behind footer */
+    padding-top: 50px; /* space for fixed header */
+    padding-bottom: 60px; /* space for fixed footer */
   }
   h1 {
-    background: #E10600; 
-    color: #fff; 
-    margin: 0; 
-    padding: 10px; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #E10600;
+    color: #fff;
+    margin: 0;
+    padding: 10px;
     font-size: 1.4rem;
+    z-index: 1001;
+    box-sizing: border-box;
   }
   #ar-button a {
     display: inline-block;
     margin: 0 auto;
   }
   #ar-button a img {
-    max-width: 600px; 
-    width: 100vw; 
+    max-width: 600px;
+    width: 100vw;
     height: auto;
-    margin: 40px auto 20px; 
-    cursor: pointer; 
+    margin: 40px auto 20px;
+    cursor: pointer;
     display: block;
     transition: transform 0.2s;
   }
@@ -36,8 +43,8 @@
     transform: scale(1.05);
   }
   .fallback {
-    color: #666; 
-    font-size: 0.9rem; 
+    color: #666;
+    font-size: 0.9rem;
     margin-top: 10px;
   }
   footer {
