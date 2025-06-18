@@ -9,7 +9,7 @@
     margin: 0; font-family: sans-serif; background: #f9f9f9; text-align: center;
   }
   h1 {
-    background: #E10600; color: #fff; margin: 0; padding: 10px; font-size: 1.5rem;
+    background: #E10600; color: #fff; margin: 0; padding: 10px; font-size: 1.4rem;
   }
   #ar-button a {
     display: inline-block;
@@ -26,10 +26,6 @@
   .fallback {
     color: #666; font-size: 0.9rem; margin-top: 10px;
   }
-  .tap-to-ar {
-    background: #232323; color: #fff; font-size: .95rem;
-    padding: 8px 0; position: fixed; bottom: 0; width: 100%; user-select: none;
-  }
 </style>
 </head>
 <body>
@@ -37,16 +33,19 @@
 <h1>Cooler Topper</h1>
 <div id="ar-button"></div>
 <div class="fallback" id="fallback"></div>
-<div class="tap-to-ar">Tap to View AR</div>
 
 <script>
   const ua = navigator.userAgent;
   const btn = document.getElementById("ar-button");
   const fb = document.getElementById("fallback");
 
-  if (/iPhone|iPad|iPod/i.test(ua)) btn.innerHTML = `<a rel="ar" href="AR_DQ2049.usdz"><img src="CoolerTopper.png" alt="View in AR" /></a>`;
-  else if (/Android/i.test(ua)) btn.innerHTML = `<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;"><img src="CoolerTopper.png" alt="View in AR" /></a>`;
-  else fb.textContent = "AR is only supported on iOS and Android devices.";
+  if (/iPhone|iPad|iPod/i.test(ua)) {
+    btn.innerHTML = `<a rel="ar" href="AR_DQ2049.usdz"><img src="CoolerTopper.png" alt="View in AR" /></a>`;
+  } else if (/Android/i.test(ua)) {
+    btn.innerHTML = `<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;"><img src="CoolerTopper.png" alt="View in AR" /></a>`;
+  } else {
+    fb.textContent = "AR is only supported on iOS and Android devices.";
+  }
 </script>
 
 </body>
