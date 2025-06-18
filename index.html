@@ -15,14 +15,35 @@
     display: inline-block;
     margin: 0 auto;
   }
-  #ar-button a img {
-    max-width: 600px; width: 100vw; height: auto;
-    margin: 40px auto 20px; cursor: pointer; display: block;
+
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+    max-width: 600px;
+    width: 100vw;
+    margin: 40px auto 20px;
+    cursor: pointer;
     transition: transform 0.2s;
   }
-  #ar-button a img:hover {
+
+  .image-wrapper:hover {
     transform: scale(1.05);
   }
+
+  .image-wrapper img.main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .image-wrapper img.tap-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 60px; /* adjust size as needed */
+    height: auto;
+  }
+
   .fallback {
     color: #666; font-size: 0.9rem; margin-top: 10px;
   }
@@ -39,10 +60,17 @@
   const btn = document.getElementById("ar-button");
   const fb = document.getElementById("fallback");
 
+  const wrapperHTML = `
+    <div class="image-wrapper">
+      <img class="main-image" src="CoolerTopper.png" alt="View in AR" />
+      <img class="tap-icon" src="tap.png" alt="Tap icon" />
+    </div>
+  `;
+
   if (/iPhone|iPad|iPod/i.test(ua)) {
-    btn.innerHTML = `<a rel="ar" href="AR_DQ2049.usdz"><img src="CoolerTopper.png" alt="View in AR" /></a>`;
+    btn.innerHTML = `<a rel="ar" href="AR_DQ2049.usdz">${wrapperHTML}</a>`;
   } else if (/Android/i.test(ua)) {
-    btn.innerHTML = `<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;"><img src="CoolerTopper.png" alt="View in AR" /></a>`;
+    btn.innerHTML = `<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;">${wrapperHTML}</a>`;
   } else {
     fb.textContent = "AR is only supported on iOS and Android devices.";
   }
