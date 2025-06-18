@@ -10,7 +10,7 @@
     font-family: sans-serif; 
     background: #f9f9f9; 
     text-align: center;
-    /* remove flex so footer is not pushed to bottom */
+    padding-bottom: 60px; /* prevent content being hidden behind footer */
   }
   h1 {
     background: #E10600; 
@@ -40,20 +40,23 @@
     font-size: 0.9rem; 
     margin-top: 10px;
   }
-  /* Footer styles */
   footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background: #eee;
     padding: 10px 20px;
-    margin: 20px auto 0; /* some spacing above footer */
-    max-width: 600px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.9rem;
     box-sizing: border-box;
+    border-top: 1px solid #ccc;
+    z-index: 1000;
   }
   footer img {
-    height: 40px; /* adjust logo size */
+    height: 40px;
   }
 </style>
 </head>
