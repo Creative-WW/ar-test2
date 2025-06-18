@@ -21,6 +21,9 @@
     padding: 10px; 
     font-size: 1.4rem;
   }
+  #ar-button {
+    min-height: 220px; /* ensures enough space before JS runs */
+  }
   #ar-button a {
     display: inline-block;
     margin: 0 auto;
@@ -47,7 +50,7 @@
     color: #ccc;
     font-size: 0.8rem;
     padding: 10px 20px;
-    margin-top: auto; /* push footer to bottom */
+    margin-top: auto; /* push footer down */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,7 +67,7 @@
 <div class="fallback" id="fallback"></div>
 
 <footer>
-  <img src="your-company-logo.png" alt="Company Logo" />
+  <img src="https://via.placeholder.com/100x24?text=Logo" alt="Company Logo" />
   <span>© Copyright belongs to me</span>
 </footer>
 
