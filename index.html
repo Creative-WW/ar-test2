@@ -11,8 +11,9 @@
     background: #f9f9f9;
     text-align: center;
     padding-top: 50px; /* space for fixed header */
-    padding-bottom: 60px; /* space for fixed footer */
+    padding-bottom: 50px; /* space for fixed footer */
   }
+
   h1 {
     position: fixed;
     top: 0;
@@ -26,10 +27,12 @@
     z-index: 1001;
     box-sizing: border-box;
   }
+
   #ar-button a {
     display: inline-block;
     margin: 0 auto;
   }
+
   #ar-button a img {
     max-width: 600px;
     width: 100vw;
@@ -39,31 +42,35 @@
     display: block;
     transition: transform 0.2s;
   }
+
   #ar-button a img:hover {
     transform: scale(1.05);
   }
+
   .fallback {
     color: #666;
     font-size: 0.9rem;
     margin-top: 10px;
   }
+
   footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #eee;
-    padding: 10px 20px;
+    background: #000; /* black background */
+    color: #fff;       /* white text */
+    padding: 8px 16px; /* slightly smaller than header */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;  /* slightly smaller text */
     box-sizing: border-box;
-    border-top: 1px solid #ccc;
     z-index: 1000;
   }
+
   footer img {
-    height: 40px;
+    height: 30px; /* smaller logo */
   }
 </style>
 </head>
