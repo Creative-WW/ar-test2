@@ -10,73 +10,57 @@
     font-family: sans-serif;
     background: #f9f9f9;
     text-align: center;
-    padding-top: 50px; /* space for fixed header */
-    padding-bottom: 50px; /* space for fixed footer */
+    padding: 50px 0;
   }
-
-  h1 {
+  h1, footer {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+  h1 {
+    top: 0;
     background: #E10600;
     color: #fff;
     margin: 0;
     padding: 10px;
     font-size: 1.4rem;
-    z-index: 1001;
-    box-sizing: border-box;
   }
-
-  #ar-button a {
-    display: inline-block;
-    margin: 0 auto;
-  }
-
-  #ar-button a img {
+  #ar-button img {
     max-width: 600px;
     width: 100vw;
-    height: auto;
     margin: 40px auto 20px;
-    cursor: pointer;
     display: block;
+    cursor: pointer;
     transition: transform 0.2s;
   }
-
-  #ar-button a img:hover {
+  #ar-button img:hover {
     transform: scale(1.05);
   }
-
   .fallback {
     color: #666;
     font-size: 0.9rem;
     margin-top: 10px;
   }
-
   footer {
-    position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #000; /* black background */
-    color: #fff;       /* white text */
-    padding: 6px 12px; /* slightly smaller padding */
+    background: #000;
+    color: #fff;
+    padding: 6px 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.7rem;  /* smaller text */
-    box-sizing: border-box;
-    z-index: 1000;
+    font-size: 0.7rem;
   }
-
   footer img {
-    height: 20px; /* smaller logo */
+    height: 20px;
   }
 </style>
 </head>
 <body>
 
-<h1>Cooler Topper</h1>
+<h1>FLM Cooler Topper</h1>
 <div id="ar-button"></div>
 <div class="fallback" id="fallback"></div>
 
