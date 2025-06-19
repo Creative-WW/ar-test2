@@ -3,23 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="color-scheme" content="light" />
 <title>Cooler Topper AR</title>
 <style>
-  /* Force light mode even if user prefers dark */
-  @media (prefers-color-scheme: dark) {
-    html, body {
-      background: #f9f9f9 !important;
-      color: #000 !important;
-    }
-  }
-
+  /* Force light mode look on body */
   body {
     margin: 0;
     font-family: sans-serif;
-    background: #f9f9f9;
+    background: #f9f9f9 !important;  /* light background forced */
+    color: black !important;          /* black text forced */
     text-align: center;
     padding: 50px 0;
+    color-scheme: light;              /* force browser light mode colors */
   }
   h1, footer {
     position: fixed;
@@ -30,8 +24,8 @@
   }
   h1 {
     top: 0;
-    background: #E10600;
-    color: #fff;
+    background: #E10600 !important;  /* force header background */
+    color: #fff !important;           /* force white header text */
     margin: 0;
     padding: 10px;
     font-size: 1.4rem;
@@ -54,8 +48,8 @@
   }
   footer {
     bottom: 0;
-    background: #000;
-    color: #fff;
+    background: #000 !important;     /* black footer bg forced */
+    color: #fff !important;           /* white footer text forced */
     padding: 6px 12px;
     display: flex;
     justify-content: space-between;
@@ -64,6 +58,14 @@
   }
   footer img {
     height: 20px;
+  }
+
+  /* Override any dark mode media queries just in case */
+  @media (prefers-color-scheme: dark) {
+    body, h1, footer {
+      background: inherit !important;
+      color: inherit !important;
+    }
   }
 </style>
 </head>
