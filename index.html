@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
 <title>Cooler Topper AR</title>
 <style>
   body {
     margin: 0;
     font-family: sans-serif;
-    background: #fff;  /* changed from #f9f9f9 to pure white */
+    background: #fff;
     text-align: center;
     padding: 50px 0;
+    color: #000; /* ensure text is dark */
   }
   h1, footer {
     position: fixed;
@@ -56,32 +56,16 @@
   footer img {
     height: 20px;
   }
+
+  /* Force light mode background and text colors even if system prefers dark mode */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #fff !important;
+      color: #000 !important;
+    }
+    .fallback {
+      color: #666 !important;
+    }
+  }
 </style>
 </head>
-<body>
-
-<h1>FLM Cooler Topper</h1>
-<div id="ar-button"></div>
-<div class="fallback" id="fallback"></div>
-
-<footer>
-  <img src="dq_logo.png" alt="Company Logo" />
-  <div>© 2025 Display Quest. All rights reserved.</div>
-</footer>
-
-<script>
-  const ua = navigator.userAgent;
-  const btn = document.getElementById("ar-button");
-  const fb = document.getElementById("fallback");
-
-  if (/iPhone|iPad|iPod/i.test(ua)) {
-    btn.innerHTML = `<a rel="ar" href="AR_DQ2049.usdz"><img src="CoolerTopper.png" alt="View in AR" /></a>`;
-  } else if (/Android/i.test(ua)) {
-    btn.innerHTML = `<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://creative-ww.github.io/artest/AR_DQ2049.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;"><img src="CoolerTopper.png" alt="View in AR" /></a>`;
-  } else {
-    fb.textContent = "AR is only supported on iOS and Android devices.";
-  }
-</script>
-
-</body>
-</html>
