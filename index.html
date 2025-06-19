@@ -5,15 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cooler Topper AR</title>
 <style>
-  /* Force light mode look on body */
   body {
     margin: 0;
     font-family: sans-serif;
-    background: #f9f9f9 !important;  /* light background forced */
-    color: black !important;          /* black text forced */
+    background: #f9f9f9;
     text-align: center;
     padding: 50px 0;
-    color-scheme: light;              /* force browser light mode colors */
   }
   h1, footer {
     position: fixed;
@@ -24,8 +21,8 @@
   }
   h1 {
     top: 0;
-    background: #E10600 !important;  /* force header background */
-    color: #fff !important;           /* force white header text */
+    background: #E10600;
+    color: #fff;
     margin: 0;
     padding: 10px;
     font-size: 1.4rem;
@@ -48,8 +45,8 @@
   }
   footer {
     bottom: 0;
-    background: #000 !important;     /* black footer bg forced */
-    color: #fff !important;           /* white footer text forced */
+    background: #000;
+    color: #fff;
     padding: 6px 12px;
     display: flex;
     justify-content: space-between;
@@ -58,14 +55,6 @@
   }
   footer img {
     height: 20px;
-  }
-
-  /* Override any dark mode media queries just in case */
-  @media (prefers-color-scheme: dark) {
-    body, h1, footer {
-      background: inherit !important;
-      color: inherit !important;
-    }
   }
 </style>
 </head>
