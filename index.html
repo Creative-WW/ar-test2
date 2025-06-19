@@ -56,13 +56,25 @@
   footer img {
     height: 20px;
   }
+  /* New container with white background */
+  .main-content {
+    background: white;
+    max-width: 600px;
+    margin: 80px auto 80px; /* space from fixed header/footer */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
 </style>
 </head>
 <body>
 
 <h1>FLM Cooler Topper</h1>
-<div id="ar-button"></div>
-<div class="fallback" id="fallback"></div>
+
+<div class="main-content">
+  <div id="ar-button"></div>
+  <div class="fallback" id="fallback"></div>
+</div>
 
 <footer>
   <img src="dq_logo.png" alt="Company Logo" />
