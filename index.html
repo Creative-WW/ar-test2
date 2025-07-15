@@ -13,8 +13,10 @@
       font-family: sans-serif;
       background: #f9f9f9;
       text-align: center;
-      padding: 50px 0;
+      height: 100vh;
+      overflow: hidden; /* Prevent scrolling */
     }
+
     h1, footer {
       position: fixed;
       width: 100%;
@@ -22,6 +24,7 @@
       box-sizing: border-box;
       z-index: 1000;
     }
+
     h1 {
       top: 0;
       background: #E10600;
@@ -30,25 +33,37 @@
       padding: 10px;
       font-size: 1.4rem;
     }
-    #ar-button {
-      margin: 100px auto 20px;
-      max-width: 600px;
-      width: 100vw;
+
+    #ar-image-wrapper {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      z-index: 900;
     }
-    #ar-button img {
+
+    #ar-image-wrapper img {
       width: 100%;
+      height: auto;
       cursor: pointer;
       transition: transform 0.2s;
       display: block;
     }
-    #ar-button img:hover {
+
+    #ar-image-wrapper img:hover {
       transform: scale(1.05);
     }
+
     .fallback {
+      position: fixed;
+      bottom: 60px;
+      width: 100%;
+      text-align: center;
       color: #666;
       font-size: 0.9rem;
-      margin-top: 10px;
     }
+
     footer {
       bottom: 0;
       background: #000;
@@ -59,9 +74,11 @@
       align-items: center;
       font-size: 0.7rem;
     }
+
     footer img {
       height: 20px;
     }
+
     .disabled-btn {
       margin-top: 20px;
       padding: 10px 20px;
@@ -79,7 +96,7 @@
 
 <h1>Q Rack</h1>
 
-<div id="ar-button" role="region" aria-label="AR Launch Button"></div>
+<div id="ar-image-wrapper" role="region" aria-label="AR Launch Button"></div>
 <div class="fallback" id="fallback"></div>
 
 <footer>
@@ -89,7 +106,7 @@
 
 <script>
   (function () {
-    const arButton = document.getElementById('ar-button');
+    const wrapper = document.getElementById('ar-image-wrapper');
     const fallback = document.getElementById('fallback');
     const imgSrc = 'Q Rack.png';
     const usdzFile = 'AR_DQ3358.usdz';
@@ -99,21 +116,21 @@
     const isAndroid = /Android/i.test(navigator.userAgent);
 
     if (isiOS) {
-      arButton.innerHTML = `
+      wrapper.innerHTML = `
         <a rel="ar" href="${usdzFile}" aria-label="View Q Rack in AR on iOS">
           <img src="${imgSrc}" alt="View in AR" loading="eager" />
         </a>
       `;
     } else if (isAndroid) {
       const intentUrl = `intent://arvr.google.com/scene-viewer/1.0?file=${encodeURIComponent(glbFile)}&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;`;
-      arButton.innerHTML = `
+      wrapper.innerHTML = `
         <a href="${intentUrl}" aria-label="View Q Rack in AR on Android">
           <img src="${imgSrc}" alt="View in AR" loading="eager" />
         </a>
       `;
     } else {
       fallback.textContent = 'AR is only supported on iOS and Android devices.';
-      arButton.innerHTML = `<button class="disabled-btn" disabled>AR Not Available</button>`;
+      wrapper.innerHTML = `<button class="disabled-btn" disabled>AR Not Available</button>`;
     }
   })();
 </script>
