@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FLM Cooler Topper AR</title>
-  <meta name="description" content="View the FLM Cooler Topper in AR on your mobile device." />
+  <title>Q Rack</title>
+  <meta name="description" content="View the Q Rack in AR on your mobile device." />
   <meta name="theme-color" content="#E10600" />
 
   <style>
@@ -77,7 +77,7 @@
 </head>
 <body>
 
-<h1>FLM Cooler Topper</h1>
+<h1>Q Rack</h1>
 
 <div id="ar-button" role="region" aria-label="AR Launch Button"></div>
 <div class="fallback" id="fallback"></div>
@@ -91,23 +91,23 @@
   (function () {
     const arButton = document.getElementById('ar-button');
     const fallback = document.getElementById('fallback');
-    const imgSrc = 'CoolerTopper.png';
-    const usdzFile = 'AR_DQ2049.usdz';
-    const glbFile = 'https://creative-ww.github.io/artest/AR_DQ2049.glb';
+    const imgSrc = 'Q Rack.png';
+    const usdzFile = 'AR_DQ3358.usdz';
+    const glbFile = 'https://creative-ww.github.io/artest/AR_DQ3358.glb';
 
     const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
     const isAndroid = /Android/i.test(navigator.userAgent);
 
     if (isiOS) {
       arButton.innerHTML = `
-        <a rel="ar" href="${usdzFile}" aria-label="View Cooler Topper in AR on iOS">
+        <a rel="ar" href="${usdzFile}" aria-label="View Q Rack in AR on iOS">
           <img src="${imgSrc}" alt="View in AR" loading="eager" />
         </a>
       `;
     } else if (isAndroid) {
       const intentUrl = `intent://arvr.google.com/scene-viewer/1.0?file=${encodeURIComponent(glbFile)}&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;end;`;
       arButton.innerHTML = `
-        <a href="${intentUrl}" aria-label="View Cooler Topper in AR on Android">
+        <a href="${intentUrl}" aria-label="View Q Rack in AR on Android">
           <img src="${imgSrc}" alt="View in AR" loading="eager" />
         </a>
       `;
